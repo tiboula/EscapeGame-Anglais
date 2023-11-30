@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Field Example</title>
+    <style>
+		body {
+			background-image: url('background.jpg');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			font-family: Arial, sans-serif;
+			height: 100vh; /* Set body height to 100% of viewport height */
+			margin: 0; /* Remove default body margin */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		html {
+			height: 100%;
+		}
+
+		main {
+            text-align: center;
+            margin-top: center;
+            padding: 20px;
+        }
+		
+		#passwordField {
+			padding-left: 100px;
+		}
+		
+        #password {
+            padding: 10px;
+			width: 150px; /* Increase width of password input */
+            position: relative;
+			margin-right: 10px;
+			font-size: 18px;
+        }
+
+        #passwordIcon {
+            position: relative;
+            top: -30px;
+            left: 0px;
+            width: 200px;
+            height: 200px;
+        }
+
+        button {
+            padding: 15px 20px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+	<body>
+		<main>
+			<div style="position: relative;">
+				<img src="icon.png" alt="Icon" id="passwordIcon">
+			</div>
+			<div id="passwordField">
+				<input type="text" id="password" name="password" placeholder="Enter Password" oninput="handleInput(this)">
+				<button onclick="checkPassword()">Submit</button>
+			</div>
+			<p id="passwordMessage"></p>
+		</main>
+
+		<script>
+			function handleInput(input) {
+				// Clear placeholder text when user starts typing
+				input.removeAttribute('placeholder');
+			}
+
+			function checkPassword() {
+				var enteredPassword = document.getElementById("password").value;
+
+				if (enteredPassword.toLowerCase() === "test") {
+					window.location.href = "https://www.wikipedia.org";
+				} else {
+					document.getElementById("passwordMessage").innerText = "Incorrect password!";
+				}
+			}
+		</script>
+
+	</body>
+</html>
